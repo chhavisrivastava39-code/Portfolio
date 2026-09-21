@@ -338,6 +338,7 @@ main > .section:nth-child(even) { background: var(--bg-alt); }
 .edu-card p { color: var(--muted); font-size: 0.95rem; margin-top: 0.2rem; }
 
 /* Experience */
+.exp-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
 .exp-card { display: flex; align-items: center; gap: 1.5rem; padding: 1.75rem; }
 .exp-card h3 { font-size: 1.3rem; }
 .exp-org { margin-top: 0.15rem; font-weight: 600; color: var(--accent-text); }
