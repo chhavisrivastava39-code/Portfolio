@@ -141,7 +141,7 @@ search `index.html` for `Chhavi-Srivastava-CV.pdf` (it appears twice) and change
 ## 10. Where to update project details
 
 Open `index.html` and search for `PROJECTS`. There are three cards, each starting with
-`<!-- PROJECT CARD ... -->`. For each card:
+`<!-- PROJECT CARD ... -->`. Card 1 is **Arkmaester** (link: https://arkmaester.vercel.app). Cards 2 and 3 are still placeholders. For each card:
 
 | What | How |
 | --- | --- |
@@ -158,13 +158,11 @@ Also update or delete the small note under the "Projects" heading (`class="secti
 
 ## 11. Where to update the B.Sc. passing year
 
-In `index.html`, search for `[PLACEHOLDER]`. Replace it, for example:
+In `index.html`, search for `Passing Year`. It is currently set to `2025`. Edit it here if it ever needs to change:
 
 ```html
-<span class="pill">Passing Year: 2024</span>
+<span class="pill">Passing Year: 2025</span>
 ```
-
-(Use your real year.)
 
 ## 12. Where to update contact information
 
@@ -174,8 +172,9 @@ In `index.html`, search for `[PLACEHOLDER]`. Replace it, for example:
 | **LinkedIn** | `index.html`: search `linkedin.com/in/`. It appears in the hero icons, the contact card and the footer. Update all of them. |
 | **GitHub** | `index.html`: search `https://github.com/`. It currently points to the GitHub home page as a placeholder. Replace it with `https://github.com/<your-username>` in the hero icons, the contact card and the footer. |
 
-Also worth completing later: the **Experience** card (`index.html`, search `InAmigos Foundation`)
-only states your role. Add dates, responsibilities or technologies once you are ready to share them.
+Also worth completing later: the **Experience** section (`index.html`, search `exp-list`) has two cards:
+the InAmigos Foundation web developer role (role only, no dates or duties yet) and the Full Stack Development
+Workshop (ASP.NET MVC) at Kamadgiri Software Solutions Limited. Add dates or more detail when you are ready.
 
 ---
 
