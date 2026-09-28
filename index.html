@@ -32,6 +32,11 @@
 </head>
 <body>
 
+<!-- Thin fixed progress bar showing how far down the page the visitor has scrolled -->
+<div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
+</div>
+
 <!-- ============ SVG ICON SPRITE (no external icon libraries) ============ -->
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
@@ -63,6 +68,8 @@
     <symbol id="i-html" viewBox="0 0 24 24"><path d="M4 3l1.6 17L12 22l6.4-2L20 3z"/><path d="M8 8h8l-.4 5-3.6 1.2L8.4 13"/></symbol>
     <symbol id="i-css" viewBox="0 0 24 24"><path d="M4 3l1.6 17L12 22l6.4-2L20 3z"/><path d="M8 8h8M8.3 12h7l-.3 3.5-3 1-3-1"/></symbol>
     <symbol id="i-bootstrap" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9.5 7.5h3.2a2.2 2.2 0 0 1 0 4.5H9.5zM9.5 12h3.9a2.4 2.4 0 0 1 0 4.8H9.5z"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M13 15h5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
   </defs>
 </svg>
 
@@ -116,7 +123,7 @@
       <div class="hero-copy reveal">
         <p class="hero-hello">Hi, I'm Chhavi</p>
         <h1 id="hero-title">Chhavi <span class="grad-text">Srivastava</span></h1>
-        <p class="hero-role">Software Developer</p>
+        <p class="hero-role"><span class="role-part">Software Developer</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> MCA Student</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> Full Stack Learner</span></p>
         <p class="hero-intro">I am an MCA student with a background in Mathematics and an interest in software and web development. I am continuously improving my coding, problem-solving and development skills, and I enjoy learning new technologies and building practical projects.</p>
 
         <div class="hero-cta">
@@ -133,6 +140,11 @@
           <li><a class="social-btn" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a></li>
           <li><a class="social-btn" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
         </ul>
+
+        <button class="easter-egg-btn" id="easter-egg-btn" type="button">
+          <svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>
+          Try something
+        </button>
       </div>
 
       <div class="hero-visual reveal">
@@ -141,10 +153,18 @@
         <span class="spark spark-3" aria-hidden="true"></span>
         <div class="photo-frame">
           <div class="photo-blob">
-            <img src="chhavi.jpeg" alt="Portrait of Chhavi Srivastava smiling, wearing an orange kurta" width="720" height="720" fetchpriority="high">
+            <img src="assets/chhavi.jpeg" alt="Portrait of Chhavi Srivastava smiling, wearing an orange kurta" width="720" height="720" fetchpriority="high">
           </div>
         </div>
         <p class="hand-note" aria-hidden="true">Code<br>Learn<br>Grow</p>
+
+        <div class="terminal" aria-hidden="true">
+          <div class="terminal-bar">
+            <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span class="term-dot term-dot-g"></span>
+            <span class="terminal-title">chhavi@portfolio ~ %</span>
+          </div>
+          <pre class="terminal-body" id="terminal-body" aria-hidden="true"></pre>
+        </div>
       </div>
     </div>
   </section>
@@ -159,28 +179,73 @@
 
       <div class="about-grid">
         <div class="about-copy reveal">
-          <p>I am an MCA student with a background in Mathematics and an interest in software and web development. I am continuously improving my coding, problem-solving and development skills, and I enjoy learning new technologies and building practical projects.</p>
+          <p class="about-kicker">👩‍💻 Who Am I?</p>
+          <p>I'm Chhavi Srivastava, an MCA student and aspiring Software Developer. I enjoy turning ideas into practical web applications and continuously improving my programming and problem-solving skills. I'm currently exploring full-stack development while strengthening my foundation in DSA and core computer science concepts.</p>
+          <ul class="about-tags">
+            <li>🎓 MCA Student</li>
+            <li>💻 Software Developer</li>
+            <li>🚀 Full Stack Learner</li>
+          </ul>
           <p class="hand-line"><span class="hand-rule" aria-hidden="true"></span>Always curious. Always learning.</p>
         </div>
 
-        <div class="about-art reveal" aria-hidden="true">
-          <svg viewBox="0 0 320 220" class="laptop-art" role="presentation">
-            <defs>
-              <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#5b2fe0"/>
-              </linearGradient>
-            </defs>
-            <rect x="60" y="20" width="200" height="130" rx="12" class="la-screen"/>
-            <rect x="60" y="20" width="200" height="130" rx="12" fill="none" stroke="url(#lg1)" stroke-width="3"/>
-            <path d="M138 58 112 85l26 27M182 58l26 27-26 27" fill="none" stroke="url(#lg1)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M162 52 150 118" fill="none" stroke="url(#lg1)" stroke-width="6" stroke-linecap="round"/>
-            <path d="M30 158h260l-16 22a10 10 0 0 1-8 4H54a10 10 0 0 1-8-4z" fill="url(#lg1)"/>
-            <rect x="130" y="160" width="60" height="6" rx="3" fill="rgba(255,255,255,.35)"/>
-            <rect x="36" y="42" width="34" height="8" rx="4" class="la-chip"/>
-            <rect x="256" y="62" width="34" height="8" rx="4" class="la-chip"/>
-            <path d="M292 190c-2-18 8-32 22-40-2 16-8 30-22 40zM292 190c-10-10-24-12-34-8 8 8 20 12 34 8z" class="la-leaf"/>
-          </svg>
+        <div class="about-photo reveal">
+          <img src="assets/chhavi-about.jpeg" alt="Chhavi Srivastava smiling outdoors" width="480" height="600" loading="lazy">
         </div>
+      </div>
+
+      <!-- ---- About My Journey: interactive vertical timeline ---- -->
+      <div class="journey">
+        <div class="section-head reveal journey-head">
+          <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-sparkle"/></svg></span>
+          <div>
+            <h3 class="journey-title">About My Journey</h3>
+            <p class="journey-tagline">From Mathematics <span aria-hidden="true">→</span> to Code <span aria-hidden="true">→</span> to Software Development</p>
+          </div>
+        </div>
+
+        <ol class="journey-timeline">
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">🎓</span>
+            <div class="journey-card">
+              <span class="journey-year">2025</span>
+              <h4>B.Sc. Mathematics</h4>
+              <p>Built a foundation in logical thinking and problem-solving.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">💻</span>
+            <div class="journey-card">
+              <span class="journey-year">2025</span>
+              <h4>Started MCA</h4>
+              <p>Began exploring programming and computer science more deeply.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">🌐</span>
+            <div class="journey-card">
+              <span class="journey-year">2026</span>
+              <h4>Web Development Experience</h4>
+              <p>Worked on web-development tasks during my internship at InAmigos Foundation.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">⚙️</span>
+            <div class="journey-card">
+              <span class="journey-year">2026</span>
+              <h4>ASP.NET MVC</h4>
+              <p>Explored full-stack development.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">🚀</span>
+            <div class="journey-card">
+              <span class="journey-year">Today</span>
+              <h4>Learning &amp; Building</h4>
+              <p>Strengthening DSA, programming and full-stack development skills through continuous practice and projects.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -283,42 +348,61 @@
       <div class="projects-grid">
 
         <!-- PROJECT CARD 1: Arkmaester. Copy a whole <article> block to add more projects -->
-        <article class="card project-card reveal">
-          <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-folder"/></svg></span>
-          <h3>Arkmaester</h3>
-          <p>An AI-powered productivity platform that helps students plan smarter, focus deeper and achieve more.</p>
-          <div class="project-links">
-            <a class="btn btn-primary btn-sm" href="https://arkmaester.vercel.app" target="_blank" rel="noopener noreferrer">View Project<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+        <article class="card project-card case-card reveal">
+          <div class="case-preview" aria-hidden="true">
+            <svg class="icon case-preview-icon"><use href="#i-folder"/></svg>
+          </div>
+          <div class="case-body">
+            <h3>Arkmaester</h3>
+            <!-- Tech stack not confirmed for this project - add tags here once known, e.g. <ul class="tags">...</ul> -->
+            <div class="case-reveal">
+              <p>An AI-powered productivity platform that helps students plan smarter, focus deeper and achieve more.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-primary btn-sm" href="https://arkmaester.vercel.app" target="_blank" rel="noopener noreferrer">View Project <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
           </div>
         </article>
 
         <!-- PROJECT CARD 2 (placeholder) -->
-        <article class="card project-card reveal">
+        <article class="card project-card case-card reveal">
           <span class="badge">Placeholder</span>
-          <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-image"/></svg></span>
-          <h3>Project Title (Placeholder)</h3>
-          <p>A short description of your project will go here. Replace this text with your actual project details later.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li>
-          </ul>
-          <div class="project-links">
-            <a class="btn btn-primary btn-sm" href="#" data-placeholder>View Project<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            <a class="btn btn-outline btn-sm" href="#" data-placeholder>View Code<svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+          <div class="case-preview" aria-hidden="true">
+            <svg class="icon case-preview-icon"><use href="#i-image"/></svg>
+          </div>
+          <div class="case-body">
+            <h3>Project Title (Placeholder)</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+            <div class="case-reveal">
+              <p>A short description of your project will go here. Replace this text with your actual project details later.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-primary btn-sm" href="#" data-placeholder>View Project <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a class="btn btn-outline btn-sm" href="#" data-placeholder>View Code<svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+            </div>
           </div>
         </article>
 
         <!-- PROJECT CARD 3 (placeholder) -->
-        <article class="card project-card reveal">
+        <article class="card project-card case-card reveal">
           <span class="badge">Placeholder</span>
-          <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-image"/></svg></span>
-          <h3>Project Title (Placeholder)</h3>
-          <p>A short description of your project will go here. Replace this text with your actual project details later.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li>
-          </ul>
-          <div class="project-links">
-            <a class="btn btn-primary btn-sm" href="#" data-placeholder>View Project<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            <a class="btn btn-outline btn-sm" href="#" data-placeholder>View Code<svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+          <div class="case-preview" aria-hidden="true">
+            <svg class="icon case-preview-icon"><use href="#i-image"/></svg>
+          </div>
+          <div class="case-body">
+            <h3>Project Title (Placeholder)</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+            <div class="case-reveal">
+              <p>A short description of your project will go here. Replace this text with your actual project details later.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-primary btn-sm" href="#" data-placeholder>View Project <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a class="btn btn-outline btn-sm" href="#" data-placeholder>View Code<svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+            </div>
           </div>
         </article>
 
@@ -331,7 +415,7 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-        <h2 id="contact-title">Let's Connect</h2>
+        <h2 id="contact-title">Let's build something together.</h2>
       </div>
       <p class="section-note reveal">Feel free to reach out for collaboration, opportunities or just to say hello!</p>
 
@@ -398,6 +482,20 @@
     </div>
   </div>
 </footer>
+
+<!-- Developer mode easter egg: small terminal-style popup, triggered by the "Try something" button -->
+<div class="egg-overlay" id="egg-overlay" hidden>
+  <div class="egg-modal" role="dialog" aria-modal="true" aria-labelledby="egg-title">
+    <div class="terminal-bar">
+      <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span class="term-dot term-dot-g"></span>
+      <span class="terminal-title" id="egg-title">developer-mode ~ %</span>
+      <button class="icon-btn egg-close" id="egg-close" type="button" aria-label="Close">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <pre class="terminal-body egg-body" id="egg-body"></pre>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
