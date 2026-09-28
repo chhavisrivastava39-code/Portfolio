@@ -50,6 +50,32 @@
   }
 
   /* ======================================================================
+     1b. SCROLL PROGRESS BAR
+     ====================================================================== */
+  var progressFill = $("#scroll-progress-fill");
+  var progressTrack = $("#scroll-progress");
+
+  function updateProgress() {
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+    if (progressFill) progressFill.style.width = pct + "%";
+    if (progressTrack) progressTrack.setAttribute("aria-valuenow", String(Math.round(pct)));
+  }
+
+  if (progressFill) {
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () { updateProgress(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  }
+
+  /* ======================================================================
      2. MOBILE NAVIGATION
      ====================================================================== */
   var navToggle = $("#nav-toggle");
@@ -252,6 +278,128 @@
         showStatus("Gmail could not be opened, so your email app is opening instead.", false);
         window.location.href = mailto;
       }
+    });
+  }
+
+  /* ======================================================================
+     8. HERO TERMINAL - small typing animation
+     ====================================================================== */
+  // Each line: [prompt text, output text]. Output is typed; prompt appears instantly.
+  var HERO_LINES = [
+    ["$ whoami", "Chhavi Srivastava"],
+    ["$ role", "Software Developer"],
+    ["$ status", "Learning \u2022 Building \u2022 Growing"]
+  ];
+
+  function typeLines(container, lines, opts) {
+    if (!container) return;
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    container.textContent = "";
+
+    if (reduceMotion) {
+      // Skip the animation and just show the final text, fully accessible.
+      lines.forEach(function (line) {
+        container.appendChild(document.createTextNode(line[0] + "\n" + line[1] + "\n\n"));
+      });
+      if (opts && opts.onDone) opts.onDone();
+      return;
+    }
+
+    var lineIndex = 0, charIndex = 0, phase = "prompt"; // prompt -> output -> pause
+    var cursor = document.createElement("span");
+    cursor.className = "t-cursor";
+    cursor.textContent = "\u00A0";
+
+    function tick() {
+      if (lineIndex >= lines.length) {
+        if (opts && opts.onDone) opts.onDone();
+        return;
+      }
+      var line = lines[lineIndex];
+      var text = phase === "prompt" ? line[0] : line[1];
+
+      if (charIndex <= text.length) {
+        var partial = text.slice(0, charIndex);
+        var built = container.getAttribute("data-built") || "";
+        container.textContent = built + partial;
+        container.appendChild(cursor);
+        charIndex++;
+        window.setTimeout(tick, phase === "prompt" ? 28 : 20);
+      } else {
+        if (phase === "prompt") {
+          container.setAttribute("data-built", (container.getAttribute("data-built") || "") + line[0] + "\n");
+          phase = "output"; charIndex = 0;
+          window.setTimeout(tick, 150);
+        } else {
+          container.setAttribute("data-built", (container.getAttribute("data-built") || "") + line[1] + "\n\n");
+          phase = "prompt"; charIndex = 0; lineIndex++;
+          window.setTimeout(tick, 350);
+        }
+      }
+    }
+    tick();
+  }
+
+  var heroTerminal = $("#terminal-body");
+  if (heroTerminal && "IntersectionObserver" in window) {
+    var heroTermStarted = false;
+    var heroTermObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !heroTermStarted) {
+          heroTermStarted = true;
+          typeLines(heroTerminal, HERO_LINES);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    heroTermObserver.observe(heroTerminal);
+  } else if (heroTerminal) {
+    typeLines(heroTerminal, HERO_LINES);
+  }
+
+  /* ======================================================================
+     9. DEVELOPER MODE EASTER EGG
+     ====================================================================== */
+  var eggBtn = $("#easter-egg-btn");
+  var eggOverlay = $("#egg-overlay");
+  var eggClose = $("#egg-close");
+  var eggBody = $("#egg-body");
+  var EGG_LINES = [
+    ["$ chhavi --dev-mode", "Loading Chhavi's developer mode..."],
+    ["$ load skills", "Skills loaded \u2713"],
+    ["$ load projects", "Projects loaded \u2713"],
+    ["$ echo", "Let's build something!"]
+  ];
+  var eggLastFocused = null;
+
+  function openEgg() {
+    if (!eggOverlay) return;
+    eggLastFocused = document.activeElement;
+    eggOverlay.hidden = false;
+    // Allow the browser to paint hidden=false before animating in
+    window.requestAnimationFrame(function () { eggOverlay.classList.add("is-open"); });
+    document.addEventListener("keydown", onEggKeydown);
+    if (eggBody) typeLines(eggBody, EGG_LINES);
+    if (eggClose) eggClose.focus();
+  }
+
+  function closeEgg() {
+    if (!eggOverlay) return;
+    eggOverlay.classList.remove("is-open");
+    document.removeEventListener("keydown", onEggKeydown);
+    window.setTimeout(function () { eggOverlay.hidden = true; }, 200);
+    if (eggLastFocused && eggLastFocused.focus) eggLastFocused.focus();
+  }
+
+  function onEggKeydown(e) {
+    if (e.key === "Escape") closeEgg();
+  }
+
+  if (eggBtn && eggOverlay) {
+    eggBtn.addEventListener("click", openEgg);
+    if (eggClose) eggClose.addEventListener("click", closeEgg);
+    eggOverlay.addEventListener("click", function (e) {
+      if (e.target === eggOverlay) closeEgg();
     });
   }
 
