@@ -437,6 +437,148 @@ main > .section:nth-child(even) { background: var(--bg-alt); }
   .hero-cta .btn { flex: 1 1 100%; }
 }
 
+/* ---------- 9. Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 150;
+  background: transparent; pointer-events: none;
+}
+.scroll-progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #a78bfa, #7c4dff 60%, #c084fc);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  transition: width 0.12s linear;
+}
+
+/* ---------- 10. Hero: role separators, easter-egg button, terminal ---------- */
+.role-sep { color: var(--muted); margin-right: 0.3rem; font-weight: 400; }
+.role-part { white-space: nowrap; }
+
+.easter-egg-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 1.5rem; padding: 0.55rem 1.1rem; border-radius: 999px;
+  font: inherit; font-size: 0.85rem; font-weight: 600; color: var(--accent-text);
+  background: var(--accent-soft); border: 1px dashed var(--border-strong); cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, transform 0.2s;
+}
+.easter-egg-btn:hover { transform: translateY(-2px); border-style: solid; }
+
+.terminal {
+  margin-top: 1.75rem; width: min(100%, 380px);
+  background: #0b0e24; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+:root[data-theme="light"] .terminal { background: #14122e; }
+.terminal-bar {
+  display: flex; align-items: center; gap: 0.4rem; padding: 0.55rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04); border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.term-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.term-dot-r { background: #ff5f57; } .term-dot-y { background: #febc2e; } .term-dot-g { background: #28c840; }
+.terminal-title { margin-left: 0.5rem; font-size: 0.78rem; color: #9aa4c4; font-family: "Courier New", monospace; }
+.terminal-body {
+  margin: 0; padding: 1rem 1.1rem 1.2rem; min-height: 132px;
+  font-family: "Courier New", monospace; font-size: 0.88rem; line-height: 1.65; color: #c9d1ff;
+  white-space: pre-wrap; word-break: break-word;
+}
+.terminal-body .t-prompt { color: #7ee787; }
+.terminal-body .t-out { color: #c9d1ff; }
+.terminal-body .t-cursor { display: inline-block; width: 0.55em; background: #a78bfa; margin-left: 2px; animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- 11. About Me: photo + tags + journey timeline ---------- */
+.about-kicker { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; padding: 0; }
+.about-tags li {
+  list-style: none; padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.88rem; font-weight: 600;
+  color: var(--accent-text); background: var(--accent-soft); border: 1px solid var(--border);
+}
+.about-photo { display: grid; place-items: center; }
+.about-photo img {
+  width: min(100%, 320px); aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%;
+  border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--glow);
+  transition: transform 0.4s ease;
+}
+.about-photo img:hover { transform: translateY(-4px); }
+
+.journey { margin-top: clamp(3rem, 6vw, 4.5rem); }
+.journey-head { align-items: flex-start; }
+.journey-title { font-size: clamp(1.35rem, 2.8vw, 1.7rem); font-weight: 700; }
+.journey-tagline { margin-top: 0.35rem; color: var(--muted); font-size: 1rem; }
+
+.journey-timeline { position: relative; display: grid; gap: 1.5rem; padding-left: 2.5rem; list-style: none; }
+.journey-timeline::before {
+  content: ""; position: absolute; left: 1.05rem; top: 0.6rem; bottom: 0.6rem; width: 2px;
+  background: linear-gradient(to bottom, var(--accent), rgba(139, 92, 246, 0.12));
+}
+.journey-item { position: relative; }
+.journey-dot {
+  position: absolute; left: -2.5rem; top: 0; display: grid; place-items: center;
+  width: 2.1rem; height: 2.1rem; border-radius: 50%; font-size: 1.05rem;
+  background: var(--card-solid); border: 1.5px solid var(--border-strong);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 14px rgba(139, 92, 246, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.journey-card {
+  padding: 1.1rem 1.4rem; border-radius: var(--radius-sm);
+  background: var(--card); border: 1px solid var(--border);
+  transition: translate 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.journey-year {
+  display: inline-block; margin-bottom: 0.4rem; padding: 0.15rem 0.65rem; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; color: var(--accent-text); background: var(--accent-soft);
+}
+.journey-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+.journey-card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+.journey-item:hover .journey-card, .journey-item:focus-within .journey-card {
+  translate: 4px 0; border-color: var(--border-strong); box-shadow: var(--glow);
+}
+.journey-item:hover .journey-dot, .journey-item:focus-within .journey-dot { transform: scale(1.12); }
+
+/* ---------- 12. Case-study project cards ---------- */
+.case-card { display: block; padding: 0; overflow: hidden; }
+.case-preview {
+  display: grid; place-items: center; height: 120px;
+  background:
+    radial-gradient(120px 80px at 20% 20%, rgba(167, 139, 250, 0.35), transparent 60%),
+    radial-gradient(140px 90px at 85% 80%, rgba(124, 77, 255, 0.3), transparent 65%),
+    var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  opacity: 0.72; transition: opacity 0.3s ease;
+}
+.case-preview-icon { width: 2.25rem; height: 2.25rem; color: var(--accent-text); opacity: 0.85; }
+.case-card:hover .case-preview, .case-card:focus-within .case-preview { opacity: 1; }
+.case-body { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem 1.6rem 1.6rem; }
+.case-body h3 { font-size: 1.12rem; font-weight: 700; }
+.case-reveal {
+  display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
+}
+.case-reveal > p { overflow: hidden; color: var(--muted); font-size: 0.94rem; margin: 0; }
+@media (hover: hover) and (pointer: fine) {
+  .case-card:hover .case-reveal, .case-card:focus-within .case-reveal { grid-template-rows: 1fr; opacity: 1; }
+}
+@media (hover: none), (pointer: coarse) {
+  .case-reveal { grid-template-rows: 1fr; opacity: 1; }
+}
+
+/* ---------- 13. Developer-mode easter egg modal ---------- */
+.egg-overlay {
+  position: fixed; inset: 0; z-index: 300; display: grid; place-items: center;
+  background: rgba(4, 6, 20, 0.6); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  padding: 1.25rem; opacity: 0; transition: opacity 0.25s ease;
+}
+.egg-overlay[hidden] { display: none; }
+.egg-overlay.is-open { opacity: 1; }
+.egg-modal {
+  width: min(100%, 420px); background: #0b0e24; border: 1px solid var(--border-strong);
+  border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); overflow: hidden;
+  transform: translateY(10px) scale(0.98); transition: transform 0.25s ease;
+}
+.egg-overlay.is-open .egg-modal { transform: translateY(0) scale(1); }
+.egg-modal .terminal-bar { position: relative; }
+.egg-close { position: absolute; right: 0.4rem; top: 0.3rem; width: 30px; height: 30px; background: transparent; border: none; color: #9aa4c4; }
+.egg-close:hover { color: #fff; }
+.egg-body { min-height: 110px; }
+
 /* Scroll reveal (only active when JavaScript is running) */
 .js .reveal {
   opacity: 0; transform: translateY(22px);
@@ -457,4 +599,16 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .terminal-body .t-cursor { display: none; }
+}
+
+/* ---------- 14. Responsive additions for new sections ---------- */
+@media (max-width: 860px) {
+  .about-photo { order: -1; }
+  .journey-timeline { padding-left: 2.1rem; }
+  .journey-dot { left: -2.1rem; width: 1.8rem; height: 1.8rem; font-size: 0.9rem; }
+  .terminal { margin-inline: auto; }
+}
+@media (max-width: 600px) {
+  .hero-role { font-size: 1.05rem; }
 }
