@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chhavi Srivastava | Software Developer</title>
-  <meta name="description"
-    content="Portfolio of Chhavi Srivastava, an MCA student with a background in Mathematics and an interest in software and web development. Skills, education, experience and projects.">
+  <meta name="description" content="Portfolio of Chhavi Srivastava, an MCA student with a background in Mathematics and an interest in software and web development. Skills, education, experience and projects.">
   <meta name="author" content="Chhavi Srivastava">
   <meta name="theme-color" content="#070a1c">
   <meta property="og:title" content="Chhavi Srivastava | Software Developer">
-  <meta property="og:description"
-    content="MCA student with a background in Mathematics and an interest in software and web development.">
+  <meta property="og:description" content="MCA student with a background in Mathematics and an interest in software and web development.">
   <meta property="og:type" content="website">
 
   <!-- Apply the saved theme before first paint (dark is the default) -->
@@ -21,7 +18,7 @@
       try {
         var saved = localStorage.getItem("theme");
         if (saved === "light" || saved === "dark") theme = saved;
-      } catch (e) { }
+      } catch (e) {}
       document.documentElement.setAttribute("data-theme", theme);
       document.documentElement.classList.add("js");
     })();
@@ -30,648 +27,456 @@
   <!-- Fonts are optional: the site falls back to system fonts if they cannot load -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- Thin fixed progress bar showing how far down the page the visitor has scrolled -->
-  <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0"
-    aria-valuemax="100" aria-valuenow="0">
-    <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
-  </div>
+<!-- Real top-of-document anchor for the footer's "back to top" link. A sticky
+     header can't be used for this: browsers treat it as already in view. -->
+<span id="top" aria-hidden="true"></span>
 
-  <!-- ============ SVG ICON SPRITE (no external icon libraries) ============ -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true"
-    focusable="false">
-    <defs>
-      <symbol id="i-user" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
-      </symbol>
-      <symbol id="i-gear" viewBox="0 0 24 24">
-        <path
-          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-        <circle cx="12" cy="12" r="3" />
-      </symbol>
-      <symbol id="i-code" viewBox="0 0 24 24">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </symbol>
-      <symbol id="i-db" viewBox="0 0 24 24">
-        <ellipse cx="12" cy="5" rx="9" ry="3" />
-        <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
-        <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
-      </symbol>
-      <symbol id="i-network" viewBox="0 0 24 24">
-        <circle cx="12" cy="5" r="2.5" />
-        <circle cx="5" cy="19" r="2.5" />
-        <circle cx="19" cy="19" r="2.5" />
-        <path d="M11 7.3 6 16.7M13 7.3l5 9.4M7.5 19h9" />
-      </symbol>
-      <symbol id="i-cap" viewBox="0 0 24 24">
-        <path d="M22 10 12 5 2 10l10 5 10-5z" />
-        <path d="M6 12v5c3 2 9 2 12 0v-5" />
-      </symbol>
-      <symbol id="i-briefcase" viewBox="0 0 24 24">
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20" />
-      </symbol>
-      <symbol id="i-folder" viewBox="0 0 24 24">
-        <path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      </symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24">
-        <rect x="2" y="4" width="20" height="16" rx="2" />
-        <path d="m22 7-10 6L2 7" />
-      </symbol>
-      <symbol id="i-send" viewBox="0 0 24 24">
-        <path d="M22 2 11 13" />
-        <path d="M22 2 15 22l-4-9-9-4z" />
-      </symbol>
-      <symbol id="i-arrow-right" viewBox="0 0 24 24">
-        <path d="M5 12h14M12 5l7 7-7 7" />
-      </symbol>
-      <symbol id="i-arrow-up" viewBox="0 0 24 24">
-        <path d="M12 19V5M5 12l7-7 7 7" />
-      </symbol>
-      <symbol id="i-download" viewBox="0 0 24 24">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </symbol>
-      <symbol id="i-external" viewBox="0 0 24 24">
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-        <polyline points="15 3 21 3 21 9" />
-        <line x1="10" y1="14" x2="21" y2="3" />
-      </symbol>
-      <symbol id="i-image" viewBox="0 0 24 24">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <path d="m21 15-5-5L5 21" />
-      </symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </symbol>
-      <symbol id="i-sun" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="4" />
-        <path
-          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-      </symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24">
-        <path d="M3 6h18M3 12h18M3 18h18" />
-      </symbol>
-      <symbol id="i-close" viewBox="0 0 24 24">
-        <path d="M18 6 6 18M6 6l12 12" />
-      </symbol>
-      <symbol id="i-github" viewBox="0 0 24 24">
-        <path
-          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-      </symbol>
-      <symbol id="i-linkedin" viewBox="0 0 24 24">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect x="2" y="9" width="4" height="12" />
-        <circle cx="4" cy="4" r="2" />
-      </symbol>
+<!-- If JavaScript is disabled, never show the loading screen at all. -->
+<noscript><style>.loading-screen { display: none !important; }</style></noscript>
 
-      <!-- Skill icons -->
-      <symbol id="i-c" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M15.5 9.2A4.5 4.5 0 1 0 15.5 14.8" />
-      </symbol>
-      <symbol id="i-java" viewBox="0 0 24 24">
-        <path d="M5 11h11v4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z" />
-        <path d="M16 12h1.5a2.5 2.5 0 0 1 0 5H16" />
-        <path d="M8 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4" />
-      </symbol>
-      <symbol id="i-html" viewBox="0 0 24 24">
-        <path d="M4 3l1.6 17L12 22l6.4-2L20 3z" />
-        <path d="M8 8h8l-.4 5-3.6 1.2L8.4 13" />
-      </symbol>
-      <symbol id="i-css" viewBox="0 0 24 24">
-        <path d="M4 3l1.6 17L12 22l6.4-2L20 3z" />
-        <path d="M8 8h8M8.3 12h7l-.3 3.5-3 1-3-1" />
-      </symbol>
-      <symbol id="i-bootstrap" viewBox="0 0 24 24">
-        <rect x="3" y="3" width="18" height="18" rx="4" />
-        <path d="M9.5 7.5h3.2a2.2 2.2 0 0 1 0 4.5H9.5zM9.5 12h3.9a2.4 2.4 0 0 1 0 4.8H9.5z" />
-      </symbol>
-      <symbol id="i-terminal" viewBox="0 0 24 24">
-        <rect x="2" y="4" width="20" height="16" rx="2" />
-        <path d="m6 9 3 3-3 3M13 15h5" />
-      </symbol>
-      <symbol id="i-sparkle" viewBox="0 0 24 24">
-        <path
-          d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
-      </symbol>
-    </defs>
-  </svg>
+<!-- Brief loading screen shown once on first load; script.js fades it out. -->
+<div class="loading-screen" id="loading-screen" role="status" aria-live="polite" aria-label="Loading portfolio">
+  <div class="loading-mark" aria-hidden="true">CS</div>
+  <p class="loading-name">Chhavi Srivastava</p>
+  <div class="loading-bar" aria-hidden="true"><span class="loading-bar-fill"></span></div>
+</div>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+<!-- Thin fixed progress bar showing how far down the page the visitor has scrolled -->
+<div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
+</div>
 
-  <!-- ======================= 1. NAVIGATION ======================= -->
-  <header class="site-header" id="top">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Chhavi Srivastava - home">
-        <span class="brand-mark" aria-hidden="true">CS</span>
-        <span class="brand-name">Chhavi Srivastava</span>
-      </a>
+<!-- ============ SVG ICON SPRITE (no external icon libraries) ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M11 7.3 6 16.7M13 7.3l5 9.4M7.5 19h9"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
 
-      <ul class="nav-links" id="nav-menu">
-        <li><a class="nav-link" href="#home">Home</a></li>
-        <li><a class="nav-link" href="#about">About</a></li>
-        <li><a class="nav-link" href="#skills">Skills</a></li>
-        <li><a class="nav-link" href="#education">Education</a></li>
-        <li><a class="nav-link" href="#experience">Experience</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-cv-mobile">
-          <a class="btn btn-outline" href="assets/Chhavi-Srivastava-CV.pdf" download>
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-download" />
-            </svg>Download CV
-          </a>
-        </li>
-      </ul>
+    <!-- Skill icons -->
+    <symbol id="i-c" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15.5 9.2A4.5 4.5 0 1 0 15.5 14.8"/></symbol>
+    <symbol id="i-java" viewBox="0 0 24 24"><path d="M5 11h11v4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M16 12h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4"/></symbol>
+    <symbol id="i-html" viewBox="0 0 24 24"><path d="M4 3l1.6 17L12 22l6.4-2L20 3z"/><path d="M8 8h8l-.4 5-3.6 1.2L8.4 13"/></symbol>
+    <symbol id="i-css" viewBox="0 0 24 24"><path d="M4 3l1.6 17L12 22l6.4-2L20 3z"/><path d="M8 8h8M8.3 12h7l-.3 3.5-3 1-3-1"/></symbol>
+    <symbol id="i-bootstrap" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9.5 7.5h3.2a2.2 2.2 0 0 1 0 4.5H9.5zM9.5 12h3.9a2.4 2.4 0 0 1 0 4.8H9.5z"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M13 15h5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+  </defs>
+</svg>
 
-      <div class="nav-actions">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
-          <svg class="icon icon-moon" aria-hidden="true">
-            <use href="#i-moon" />
-          </svg>
-          <svg class="icon icon-sun" aria-hidden="true">
-            <use href="#i-sun" />
-          </svg>
-        </button>
-        <a class="btn btn-outline nav-cv-desktop" href="assets/Chhavi-Srivastava-CV.pdf" download>
-          <svg class="icon" aria-hidden="true">
-            <use href="#i-download" />
-          </svg>Download CV
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ======================= 1. NAVIGATION ======================= -->
+<header class="site-header">
+  <nav class="nav container" aria-label="Main navigation">
+    <a class="brand" href="#home" aria-label="Chhavi Srivastava - home">
+      <span class="brand-mark" aria-hidden="true">CS</span>
+      <span class="brand-name">Chhavi Srivastava</span>
+    </a>
+
+    <ul class="nav-links" id="nav-menu">
+      <li><a class="nav-link" href="#home">Home</a></li>
+      <li><a class="nav-link" href="#about">About</a></li>
+      <li><a class="nav-link" href="#skills">Skills</a></li>
+      <li><a class="nav-link" href="#education">Education</a></li>
+      <li><a class="nav-link" href="#experience">Experience</a></li>
+      <li><a class="nav-link" href="#projects">Projects</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+      <li class="nav-cv-mobile">
+        <a class="btn btn-outline" href="assets/Chhavi-Srivastava-CV.pdf" download>
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Download CV
         </a>
-        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
-          aria-controls="nav-menu">
-          <svg class="icon icon-open" aria-hidden="true">
-            <use href="#i-menu" />
-          </svg>
-          <svg class="icon icon-close" aria-hidden="true">
-            <use href="#i-close" />
-          </svg>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-outline nav-cv-desktop" href="assets/Chhavi-Srivastava-CV.pdf" download>
+        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Download CV
+      </a>
+      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ======================= 2. HERO / HOME ======================= -->
+  <section class="section hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <p class="hero-hello">Hi, I'm Chhavi</p>
+        <h1 id="hero-title">Chhavi <span class="grad-text">Srivastava</span></h1>
+        <p class="hero-role"><span class="role-part">Software Developer</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> MCA Student</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> Full Stack Learner</span></p>
+        <p class="hero-intro">I'm an MCA student and aspiring Software Developer, exploring full-stack development while continuously improving my programming and problem-solving skills.</p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">View My Work
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a class="btn btn-outline" href="#contact">Contact Me
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+          </a>
+        </div>
+
+        <ul class="social-row" aria-label="Social links">
+          <li><a class="social-btn" href="#projects" aria-label="Jump to my projects"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></a></li>
+          <li><a class="social-btn" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+          <li><a class="social-btn" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+        </ul>
+
+        <button class="easter-egg-btn" id="easter-egg-btn" type="button">
+          <svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>
+          Try something
         </button>
       </div>
-    </nav>
-  </header>
 
-  <main id="main">
+      <div class="hero-visual reveal">
+        <span class="spark spark-1" aria-hidden="true"></span>
+        <span class="spark spark-2" aria-hidden="true"></span>
+        <span class="spark spark-3" aria-hidden="true"></span>
 
-    <!-- ======================= 2. HERO / HOME ======================= -->
-    <section class="section hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="hero-hello">Hi, I'm Chhavi</p>
-          <h1 id="hero-title">Chhavi <span class="grad-text">Srivastava</span></h1>
-          <p class="hero-role"><span class="role-part">Software Developer</span> <span class="role-part"><span
-                class="role-sep" aria-hidden="true">|</span> MCA Student</span> <span class="role-part"><span
-                class="role-sep" aria-hidden="true">|</span> Full Stack Learner</span></p>
-          <p class="hero-intro">I'm an MCA student and aspiring Software Developer, exploring full-stack development
-            while continuously improving my programming and problem-solving skills.</p>
-
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#projects">View My Work
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-arrow-right" />
-              </svg>
-            </a>
-            <a class="btn btn-outline" href="#contact">Contact Me
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-mail" />
-              </svg>
-            </a>
+        <div class="terminal terminal-hero" aria-hidden="true">
+          <div class="terminal-bar">
+            <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span class="term-dot term-dot-g"></span>
+            <span class="terminal-title">chhavi@portfolio ~ %</span>
           </div>
+          <pre class="terminal-body" id="terminal-body" aria-hidden="true"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <ul class="social-row" aria-label="Social links">
-            <li><a class="social-btn" href="#projects" aria-label="Jump to my projects"><svg class="icon"
-                  aria-hidden="true">
-                  <use href="#i-code" />
-                </svg></a></li>
-            <li><a class="social-btn" href="https://github.com/chhavisrivastava39-code/" target="_blank"
-                rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true">
-                  <use href="#i-github" />
-                </svg></a></li>
-            <li><a class="social-btn" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank"
-                rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg class="icon"
-                  aria-hidden="true">
-                  <use href="#i-linkedin" />
-                </svg></a></li>
+  <!-- ======================= 3. ABOUT ME ======================= -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-user"/></svg></span>
+        <h2 id="about-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="about-kicker">👩‍💻 Who Am I?</p>
+          <p>I'm Chhavi Srivastava, an MCA student and aspiring Software Developer. I enjoy turning ideas into practical web applications while continuously improving my programming and problem-solving skills. I'm currently exploring full-stack development and strengthening my foundation in DSA and core computer science concepts.</p>
+          <ul class="about-tags">
+            <li>🎓 MCA Student</li>
+            <li>💻 Software Developer</li>
+            <li>🚀 Full Stack Learner</li>
           </ul>
-
-          <button class="easter-egg-btn" id="easter-egg-btn" type="button">
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-sparkle" />
-            </svg>
-            Try something
-          </button>
+          <blockquote class="hand-quote">
+            <p>Always curious. Always learning.</p>
+          </blockquote>
         </div>
 
-        <div class="hero-visual reveal">
-          <span class="spark spark-1" aria-hidden="true"></span>
-          <span class="spark spark-2" aria-hidden="true"></span>
-          <span class="spark spark-3" aria-hidden="true"></span>
+        <div class="about-photo reveal">
+          <img src="assets/photo.jpeg" alt="Chhavi Srivastava" width="801" height="881" loading="lazy">
+        </div>
+      </div>
 
-          <div class="terminal terminal-hero" aria-hidden="true">
-            <div class="terminal-bar">
-              <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span
-                class="term-dot term-dot-g"></span>
-              <span class="terminal-title">chhavi@portfolio ~ %</span>
+      <!-- ---- About My Journey: interactive vertical timeline ---- -->
+      <div class="journey">
+        <div class="section-head reveal journey-head">
+          <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-sparkle"/></svg></span>
+          <div>
+            <h3 class="journey-title">About My Journey</h3>
+            <p class="journey-tagline">From Mathematics <span aria-hidden="true">→</span> to Code <span aria-hidden="true">→</span> to Software Development</p>
+          </div>
+        </div>
+
+        <ol class="journey-timeline">
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">🎓</span>
+            <div class="journey-card">
+              <span class="journey-year">2025</span>
+              <h4>B.Sc. Mathematics</h4>
+              <p>Built a foundation in logical thinking and problem-solving.</p>
             </div>
-            <pre class="terminal-body" id="terminal-body" aria-hidden="true"></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= 3. ABOUT ME ======================= -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-icon" aria-hidden="true"><svg class="icon">
-              <use href="#i-user" />
-            </svg></span>
-          <h2 id="about-title">About Me</h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <p class="about-kicker">👩‍💻 Who Am I?</p>
-            <p>I'm Chhavi Srivastava, an MCA student and aspiring Software Developer. I enjoy turning ideas into
-              practical web applications while continuously improving my programming and problem-solving skills. I'm
-              currently exploring full-stack development and strengthening my foundation in DSA and core computer
-              science concepts.</p>
-            <ul class="about-tags">
-              <li>🎓 MCA Student</li>
-              <li>💻 Software Developer</li>
-              <li>🚀 Full Stack Learner</li>
-            </ul>
-            <blockquote class="hand-quote">
-              <p>Always curious. Always learning.</p>
-            </blockquote>
-          </div>
-
-          <div class="about-photo reveal">
-            <img src="/chhavi1.jpeg" alt="Chhavi Srivastava smiling outdoors" width="480" height="600" loading="lazy">
-          </div>
-        </div>
-
-        <!-- ---- About My Journey: interactive vertical timeline ---- -->
-        <div class="journey">
-          <div class="section-head reveal journey-head">
-            <span class="section-icon" aria-hidden="true"><svg class="icon">
-                <use href="#i-sparkle" />
-              </svg></span>
-            <div>
-              <h3 class="journey-title">About My Journey</h3>
-              <p class="journey-tagline">From Mathematics <span aria-hidden="true">→</span> to Code <span
-                  aria-hidden="true">→</span> to Software Development</p>
-            </div>
-          </div>
-
-          <ol class="journey-timeline">
-            <li class="journey-item reveal">
-              <span class="journey-dot" aria-hidden="true">🎓</span>
-              <div class="journey-card">
-                <span class="journey-year">2025</span>
-                <h4>B.Sc. Mathematics</h4>
-                <p>Built a foundation in logical thinking and problem-solving.</p>
-              </div>
-            </li>
-            <li class="journey-item reveal">
-              <span class="journey-dot" aria-hidden="true">💻</span>
-              <div class="journey-card">
-                <span class="journey-year">2025</span>
-                <h4>Started MCA</h4>
-                <p>Began exploring programming and computer science more deeply.</p>
-              </div>
-            </li>
-            <li class="journey-item reveal">
-              <span class="journey-dot" aria-hidden="true">🌐</span>
-              <div class="journey-card">
-                <span class="journey-year">2026</span>
-                <h4>Web Development Experience</h4>
-                <p>Worked on web-development tasks during my internship at InAmigos Foundation.</p>
-              </div>
-            </li>
-            <li class="journey-item reveal">
-              <span class="journey-dot" aria-hidden="true">⚙️</span>
-              <div class="journey-card">
-                <span class="journey-year">2026</span>
-                <h4>ASP.NET MVC</h4>
-                <p>Explored full-stack development.</p>
-              </div>
-            </li>
-            <li class="journey-item reveal">
-              <span class="journey-dot" aria-hidden="true">🚀</span>
-              <div class="journey-card">
-                <span class="journey-year">Today</span>
-                <h4>Learning &amp; Building</h4>
-                <p>Strengthening DSA, programming and full-stack development skills through continuous practice and
-                  projects.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= 4. SKILLS ======================= -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-icon" aria-hidden="true"><svg class="icon">
-              <use href="#i-gear" />
-            </svg></span>
-          <h2 id="skills-title">Skills</h2>
-        </div>
-
-        <div class="skills-group">
-          <p class="skills-group-label reveal">Programming &amp; Web Development</p>
-          <ul class="skills-grid">
-            <li class="skill-card reveal" style="--c:#5aa2ff"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-c" />
-              </svg><span class="skill-name">C</span></li>
-            <li class="skill-card reveal" style="--c:#ff8c4d"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-java" />
-              </svg><span class="skill-name">Java</span></li>
-            <li class="skill-card reveal" style="--c:#38bdf8"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-db" />
-              </svg><span class="skill-name">SQL</span></li>
-            <li class="skill-card reveal" style="--c:#ff6a3d"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-html" />
-              </svg><span class="skill-name">HTML</span></li>
-            <li class="skill-card reveal" style="--c:#3d8bff"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-css" />
-              </svg><span class="skill-name">CSS</span></li>
-            <li class="skill-card reveal" style="--c:#9b6bff"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-bootstrap" />
-              </svg><span class="skill-name">Bootstrap</span></li>
-          </ul>
-        </div>
-
-        <div class="skills-group skills-group-cs">
-          <p class="skills-group-label reveal">Core Computer Science</p>
-          <ul class="skills-grid">
-            <li class="skill-card reveal" style="--c:#a78bfa"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-code" />
-              </svg><span class="skill-name">Data Structures and Algorithms</span><span class="skill-note">Currently
-                learning</span></li>
-            <li class="skill-card reveal" style="--c:#34d399"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-gear" />
-              </svg><span class="skill-name">Operating Systems</span><span class="skill-note">Basic concepts</span></li>
-            <li class="skill-card reveal" style="--c:#60a5fa"><svg class="icon skill-icon" aria-hidden="true">
-                <use href="#i-network" />
-              </svg><span class="skill-name">Computer Networks</span><span class="skill-note">Basic concepts</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= 5. EDUCATION ======================= -->
-    <section class="section" id="education" aria-labelledby="education-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-icon" aria-hidden="true"><svg class="icon">
-              <use href="#i-cap" />
-            </svg></span>
-          <h2 id="education-title">Education</h2>
-        </div>
-
-        <ol class="timeline">
-          <li class="timeline-item reveal">
-            <article class="card edu-card">
-              <span class="card-icon" aria-hidden="true"><svg class="icon">
-                  <use href="#i-cap" />
-                </svg></span>
-              <div class="card-body">
-                <h3>Master of Computer Applications (MCA)</h3>
-                <p>School of Management Sciences, Varanasi</p>
-              </div>
-              <span class="pill">Expected Completion: 2027</span>
-            </article>
           </li>
-          <li class="timeline-item reveal">
-            <article class="card edu-card">
-              <span class="card-icon" aria-hidden="true"><svg class="icon">
-                  <use href="#i-cap" />
-                </svg></span>
-              <div class="card-body">
-                <h3>Bachelor of Science (B.Sc.) in Mathematics</h3>
-                <p>Veer Bahadur Singh Purvanchal University</p>
-              </div>
-              <span class="pill">Passing Year: 2025</span>
-            </article>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">💻</span>
+            <div class="journey-card">
+              <span class="journey-year">2025</span>
+              <h4>Started MCA</h4>
+              <p>Began exploring programming and computer science more deeply.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">🌐</span>
+            <div class="journey-card">
+              <span class="journey-year">2026</span>
+              <h4>Web Development Experience</h4>
+              <p>Worked on web-development tasks during my internship at InAmigos Foundation.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">⚙️</span>
+            <div class="journey-card">
+              <span class="journey-year">2026</span>
+              <h4>ASP.NET MVC</h4>
+              <p>Explored full-stack development.</p>
+            </div>
+          </li>
+          <li class="journey-item reveal">
+            <span class="journey-dot" aria-hidden="true">🚀</span>
+            <div class="journey-card">
+              <span class="journey-year">Today</span>
+              <h4>Learning &amp; Building</h4>
+              <p>Strengthening DSA, programming and full-stack development skills through continuous practice and projects.</p>
+            </div>
           </li>
         </ol>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ======================= 6. EXPERIENCE ======================= -->
-    <section class="section" id="experience" aria-labelledby="experience-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-icon" aria-hidden="true"><svg class="icon">
-              <use href="#i-briefcase" />
-            </svg></span>
-          <h2 id="experience-title">Experience</h2>
-        </div>
-
-        <!-- TODO: add duration, responsibilities and technologies for the web developer role once you are ready to share them -->
-        <div class="exp-list">
-          <article class="card exp-card reveal">
-            <span class="card-icon card-icon-lg" aria-hidden="true"><svg class="icon">
-                <use href="#i-briefcase" />
-              </svg></span>
-            <div class="card-body">
-              <h3>Web Developer</h3>
-              <p class="exp-org">InAmigos Foundation</p>
-              <p>Worked as a Web Developer at InAmigos Foundation.</p>
-            </div>
-          </article>
-
-          <article class="card exp-card reveal">
-            <span class="card-icon card-icon-lg" aria-hidden="true"><svg class="icon">
-                <use href="#i-code" />
-              </svg></span>
-            <div class="card-body">
-              <h3>Full Stack Development Workshop (ASP.NET MVC)</h3>
-              <p class="exp-org">Kamadgiri Software Solutions Limited</p>
-              <p>Gained hands-on exposure to ASP.NET MVC and web application development.</p>
-            </div>
-          </article>
-        </div>
+  <!-- ======================= 4. SKILLS ======================= -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-gear"/></svg></span>
+        <h2 id="skills-title">Skills</h2>
       </div>
-    </section>
 
-    <!-- ======================= 7. PROJECTS ======================= -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-icon" aria-hidden="true"><svg class="icon">
-              <use href="#i-folder" />
-            </svg></span>
-          <h2 id="projects-title">Projects</h2>
-        </div>
-        <p class="section-note reveal">Projects I've built while learning, experimenting, and turning ideas into
-          practical applications.</p>
-
-        <div class="projects-grid projects-grid-solo">
-
-          <!-- PROJECT CARD: Arkmaester. Copy this whole <article> block when adding a new project -->
-          <article class="card project-card case-card reveal">
-            <a class="case-preview" href="https://arkmaester.vercel.app" target="_blank" rel="noopener noreferrer"
-              aria-label="Open Arkmaester (opens in a new tab)">
-              <img src="/image.jpeg" alt="" width="600" height="338" loading="lazy">
-              <span class="case-preview-overlay" aria-hidden="true"></span>
-            </a>
-            <div class="case-body">
-              <h3>Arkmaester</h3>
-              <ul class="tags" aria-label="Technologies">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Bootstrap</li>
-                <li>JavaScript</li>
-              </ul>
-              <div class="case-reveal">
-                <p>An AI-powered productivity platform that helps students plan smarter, focus deeper and achieve more.
-                </p>
-              </div>
-              <div class="project-links">
-                <a class="btn btn-primary btn-sm" href="https://arkmaester.vercel.app" target="_blank"
-                  rel="noopener noreferrer">View Project <svg class="icon" aria-hidden="true">
-                    <use href="#i-arrow-right" />
-                  </svg></a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================= 8. LET'S CONNECT / CONTACT ======================= -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-icon" aria-hidden="true"><svg class="icon">
-              <use href="#i-mail" />
-            </svg></span>
-          <h2 id="contact-title">Let's build something together.</h2>
-        </div>
-        <p class="section-note reveal">Feel free to reach out for collaboration, opportunities or just to say hello!</p>
-
-        <div class="contact-stack">
-          <form class="card contact-form reveal" id="contact-form" novalidate>
-            <div class="field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
-              <span class="field-error" id="cf-name-err" role="alert"></span>
-            </div>
-            <div class="field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" autocomplete="email" required
-                placeholder="you@example.com">
-              <span class="field-error" id="cf-email-err" role="alert"></span>
-            </div>
-            <div class="field">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" rows="5" required
-                placeholder="Write your message here"></textarea>
-              <span class="field-error" id="cf-message-err" role="alert"></span>
-            </div>
-            <button class="btn btn-primary" type="submit">Send Message
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-send" />
-              </svg>
-            </button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </form>
-
-          <ul class="contact-cards">
-            <!-- To change contact details, edit the href and text below (see the README) -->
-            <li class="reveal">
-              <a class="card contact-card" href="mailto:chhavisrivastava39@gmail.com">
-                <span class="card-icon" aria-hidden="true"><svg class="icon">
-                    <use href="#i-mail" />
-                  </svg></span>
-                <span class="contact-text"><strong>Email</strong><span>chhavisrivastava39@gmail.com</span></span>
-              </a>
-            </li>
-            <li class="reveal">
-              <a class="card contact-card" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6"
-                target="_blank" rel="noopener noreferrer">
-                <span class="card-icon" aria-hidden="true"><svg class="icon">
-                    <use href="#i-linkedin" />
-                  </svg></span>
-                <span
-                  class="contact-text"><strong>LinkedIn</strong><span>linkedin.com/in/chhavi-srivastava-92136b3a6</span></span>
-              </a>
-            </li>
-            <li class="reveal">
-              <a class="card contact-card" href="https://github.com/chhavisrivastava39-code/" target="_blank"
-                rel="noopener noreferrer">
-                <span class="card-icon" aria-hidden="true"><svg class="icon">
-                    <use href="#i-github" />
-                  </svg></span>
-                <span class="contact-text"><strong>GitHub</strong><span>github.com</span></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ======================= 9. FOOTER ======================= -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year">2026</span> Chhavi Srivastava. All rights reserved.</p>
-      <div class="footer-right">
-        <ul class="social-row social-row-sm" aria-label="Social links">
-          <li><a class="social-btn" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank"
-              rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true">
-                <use href="#i-linkedin" />
-              </svg></a></li>
-          <li><a class="social-btn" href="https://github.com/chhavisrivastava39-code/" target="_blank"
-              rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true">
-                <use href="#i-github" />
-              </svg></a></li>
+      <div class="skills-group">
+        <p class="skills-group-label reveal">Programming &amp; Web Development</p>
+        <ul class="skills-grid">
+          <li class="skill-card reveal" style="--c:#5aa2ff"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-c"/></svg><span class="skill-name">C</span></li>
+          <li class="skill-card reveal" style="--c:#ff8c4d"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-java"/></svg><span class="skill-name">Java</span></li>
+          <li class="skill-card reveal" style="--c:#38bdf8"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-db"/></svg><span class="skill-name">SQL</span></li>
+          <li class="skill-card reveal" style="--c:#ff6a3d"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-html"/></svg><span class="skill-name">HTML</span></li>
+          <li class="skill-card reveal" style="--c:#3d8bff"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-css"/></svg><span class="skill-name">CSS</span></li>
+          <li class="skill-card reveal" style="--c:#9b6bff"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-bootstrap"/></svg><span class="skill-name">Bootstrap</span></li>
         </ul>
-        <a class="social-btn to-top" href="#top" aria-label="Back to top"><svg class="icon" aria-hidden="true">
-            <use href="#i-arrow-up" />
-          </svg></a>
+      </div>
+
+      <div class="skills-group skills-group-cs">
+        <p class="skills-group-label reveal">Core Computer Science</p>
+        <ul class="skills-grid">
+          <li class="skill-card reveal" style="--c:#a78bfa"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-code"/></svg><span class="skill-name">Data Structures and Algorithms</span><span class="skill-note">Currently learning</span></li>
+          <li class="skill-card reveal" style="--c:#34d399"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-gear"/></svg><span class="skill-name">Operating Systems</span><span class="skill-note">Basic concepts</span></li>
+          <li class="skill-card reveal" style="--c:#60a5fa"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-network"/></svg><span class="skill-name">Computer Networks</span><span class="skill-note">Basic concepts</span></li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- Developer mode easter egg: small terminal-style popup, triggered by the "Try something" button -->
-  <div class="egg-overlay" id="egg-overlay" hidden>
-    <div class="egg-modal" role="dialog" aria-modal="true" aria-labelledby="egg-title">
-      <div class="terminal-bar">
-        <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span
-          class="term-dot term-dot-g"></span>
-        <span class="terminal-title" id="egg-title">developer-mode ~ %</span>
-        <button class="icon-btn egg-close" id="egg-close" type="button" aria-label="Close">
-          <svg class="icon" aria-hidden="true">
-            <use href="#i-close" />
-          </svg>
-        </button>
+  <!-- ======================= 5. EDUCATION ======================= -->
+  <section class="section" id="education" aria-labelledby="education-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-cap"/></svg></span>
+        <h2 id="education-title">Education</h2>
       </div>
-      <pre class="terminal-body egg-body" id="egg-body"></pre>
+
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <article class="card edu-card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-cap"/></svg></span>
+            <div class="card-body">
+              <h3>Master of Computer Applications (MCA)</h3>
+              <p>School of Management Sciences, Varanasi</p>
+            </div>
+            <span class="pill">Expected Completion: 2027</span>
+          </article>
+        </li>
+        <li class="timeline-item reveal">
+          <article class="card edu-card">
+            <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-cap"/></svg></span>
+            <div class="card-body">
+              <h3>Bachelor of Science (B.Sc.) in Mathematics</h3>
+              <p>Veer Bahadur Singh Purvanchal University</p>
+            </div>
+            <span class="pill">Passing Year: 2025</span>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ======================= 6. EXPERIENCE ======================= -->
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></span>
+        <h2 id="experience-title">Experience</h2>
+      </div>
+
+      <!-- TODO: add duration, responsibilities and technologies for the web developer role once you are ready to share them -->
+      <div class="exp-list">
+        <article class="card exp-card reveal">
+          <span class="card-icon card-icon-lg" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></span>
+          <div class="card-body">
+            <h3>Web Developer</h3>
+            <p class="exp-org">InAmigos Foundation</p>
+            <p>Worked as a Web Developer at InAmigos Foundation.</p>
+          </div>
+        </article>
+
+        <article class="card exp-card reveal">
+          <span class="card-icon card-icon-lg" aria-hidden="true"><svg class="icon"><use href="#i-code"/></svg></span>
+          <div class="card-body">
+            <h3>Full Stack Development Workshop (ASP.NET MVC)</h3>
+            <p class="exp-org">Kamadgiri Software Solutions Limited</p>
+            <p>Gained hands-on exposure to ASP.NET MVC and web application development.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 7. PROJECTS ======================= -->
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-folder"/></svg></span>
+        <h2 id="projects-title">Projects</h2>
+      </div>
+      <p class="section-note reveal">Projects I've built while learning, experimenting, and turning ideas into practical applications.</p>
+
+      <div class="projects-grid projects-grid-solo">
+
+        <!-- PROJECT CARD: Arkmaester. Copy this whole <article> block when adding a new project -->
+        <article class="card project-card case-card reveal">
+          <a class="case-preview" href="https://arkmaester.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open Arkmaester (opens in a new tab)">
+            <img src="assets/image.jpeg" alt="" width="600" height="338" loading="lazy">
+            <span class="case-preview-overlay" aria-hidden="true"></span>
+          </a>
+          <div class="case-body">
+            <h3>Arkmaester</h3>
+            <ul class="tags" aria-label="Technologies">
+              <li>HTML</li><li>CSS</li><li>Bootstrap</li><li>JavaScript</li>
+            </ul>
+            <div class="case-reveal">
+              <p>An AI-powered productivity platform that helps students plan smarter, focus deeper and achieve more.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-primary btn-sm" href="https://arkmaester.vercel.app" target="_blank" rel="noopener noreferrer">View Project <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 8. LET'S CONNECT / CONTACT ======================= -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+        <h2 id="contact-title">Let's build something together.</h2>
+      </div>
+      <p class="section-note reveal">Feel free to reach out for collaboration, opportunities or just to say hello!</p>
+
+      <div class="contact-stack">
+        <form class="card contact-form reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+            <span class="field-error" id="cf-name-err" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+            <span class="field-error" id="cf-email-err" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Write your message here"></textarea>
+            <span class="field-error" id="cf-message-err" role="alert"></span>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Message
+            <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <ul class="contact-cards">
+          <!-- To change contact details, edit the href and text below (see the README) -->
+          <li class="reveal">
+            <a class="card contact-card" href="mailto:chhavisrivastava39@gmail.com">
+              <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+              <span class="contact-text"><strong>Email</strong><span>chhavisrivastava39@gmail.com</span></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="card contact-card" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank" rel="noopener noreferrer">
+              <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-linkedin"/></svg></span>
+              <span class="contact-text"><strong>LinkedIn</strong><span>linkedin.com/in/chhavi-srivastava-92136b3a6</span></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="card contact-card" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+              <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-github"/></svg></span>
+              <span class="contact-text"><strong>GitHub</strong><span>github.com</span></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= 9. FOOTER ======================= -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year">2026</span> Chhavi Srivastava. All rights reserved.</p>
+    <div class="footer-right">
+      <ul class="social-row social-row-sm" aria-label="Social links">
+        <li><a class="social-btn" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+        <li><a class="social-btn" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      </ul>
+      <a class="social-btn to-top" href="#top" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
     </div>
   </div>
+</footer>
 
-  <script src="script.js"></script>
+<!-- Developer mode easter egg: small terminal-style popup, triggered by the "Try something" button -->
+<div class="egg-overlay" id="egg-overlay" hidden>
+  <div class="egg-modal" role="dialog" aria-modal="true" aria-labelledby="egg-title">
+    <div class="terminal-bar">
+      <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span class="term-dot term-dot-g"></span>
+      <span class="terminal-title" id="egg-title">developer-mode ~ %</span>
+      <button class="icon-btn egg-close" id="egg-close" type="button" aria-label="Close">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <pre class="terminal-body egg-body" id="egg-body"></pre>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
-
 </html>
