@@ -5,6 +5,39 @@
 (function () {
   "use strict";
 
+  /* ======================================================================
+     0. LOADING SCREEN - runs first and independently of everything below,
+        so a problem elsewhere in this file can never leave it stuck on screen.
+     ====================================================================== */
+  try {
+    var loader = document.getElementById("loading-screen");
+    if (loader) {
+      var loaderHidden = false;
+      var hideLoader = function () {
+        if (loaderHidden) return;
+        loaderHidden = true;
+        loader.classList.add("is-hidden");
+        window.setTimeout(function () {
+          if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 600);
+      };
+      if (document.readyState === "complete") {
+        hideLoader();
+      } else {
+        window.addEventListener("load", hideLoader);
+      }
+      // Safety net: never block the site if "load" is slow to fire or never fires.
+      window.setTimeout(hideLoader, 4000);
+      // Back/forward-cache restores: make sure it's gone, not re-shown.
+      window.addEventListener("pageshow", function (e) {
+        if (e.persisted) hideLoader();
+      });
+    }
+  } catch (loaderErr) {
+    var fallbackLoader = document.getElementById("loading-screen");
+    if (fallbackLoader && fallbackLoader.parentNode) fallbackLoader.parentNode.removeChild(fallbackLoader);
+  }
+
   /* ---------- Settings you may want to edit ---------- */
   var CONTACT_EMAIL = "chhavisrivastava39@gmail.com";
   var THEME_KEY = "theme";
