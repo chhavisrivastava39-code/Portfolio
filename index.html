@@ -40,11 +40,19 @@
 <noscript><style>.loading-screen { display: none !important; }</style></noscript>
 
 <!-- Brief loading screen shown once on first load; script.js fades it out. -->
-<div class="loading-screen" id="loading-screen" role="status" aria-live="polite" aria-label="Loading portfolio">
-  <div class="loading-mark" aria-hidden="true">CS</div>
-  <p class="loading-name">Chhavi Srivastava</p>
-  <div class="loading-bar" aria-hidden="true"><span class="loading-bar-fill"></span></div>
+<div class="loading-screen" id="loading-screen" role="status" aria-label="Loading portfolio">
+  <div class="loader-ring" id="loader-ring" aria-hidden="true">
+    <svg class="loader-svg" id="loader-svg" viewBox="0 0 200 200"></svg>
+    <div class="loader-text">
+      <span class="loader-label">LOADING</span>
+      <span class="loader-pct" id="loader-pct">0%</span>
+    </div>
+  </div>
+  <p class="loader-welcome" id="loader-welcome" aria-hidden="true">Welcome to my digital space</p>
 </div>
+
+<!-- Decorative neural-network background (drawn by script.js). Sits behind all content and ignores the pointer. -->
+<canvas id="neural-bg" aria-hidden="true"></canvas>
 
 <!-- Thin fixed progress bar showing how far down the page the visitor has scrolled -->
 <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -84,6 +92,8 @@
     <symbol id="i-bootstrap" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9.5 7.5h3.2a2.2 2.2 0 0 1 0 4.5H9.5zM9.5 12h3.9a2.4 2.4 0 0 1 0 4.8H9.5z"/></symbol>
     <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M13 15h5"/></symbol>
     <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+    <symbol id="i-python" viewBox="0 0 24 24"><path d="M12 3c-3 0-4 1-4 3v2h4"/><path d="M8 8H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2"/><path d="M12 21c3 0 4-1 4-3v-2h-4"/><path d="M16 16h3a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2"/><circle cx="9.5" cy="6" r=".8" fill="currentColor" stroke="none"/><circle cx="14.5" cy="18" r=".8" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-js" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 9v7.2a1.8 1.8 0 0 1-3.2 1.1M14 9v5.3a1.9 1.9 0 0 0 3.8 0"/></symbol>
   </defs>
 </svg>
 
@@ -105,11 +115,6 @@
       <li><a class="nav-link" href="#experience">Experience</a></li>
       <li><a class="nav-link" href="#projects">Projects</a></li>
       <li><a class="nav-link" href="#contact">Contact</a></li>
-      <li class="nav-cv-mobile">
-        <a class="btn btn-outline" href="assets/Chhavi-Srivastava-CV.pdf" download>
-          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Download CV
-        </a>
-      </li>
     </ul>
 
     <div class="nav-actions">
@@ -117,9 +122,6 @@
         <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
         <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
       </button>
-      <a class="btn btn-outline nav-cv-desktop" href="assets/Chhavi-Srivastava-CV.pdf" download>
-        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Download CV
-      </a>
       <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
         <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
@@ -137,15 +139,13 @@
       <div class="hero-copy reveal">
         <p class="hero-hello">Hi, I'm Chhavi</p>
         <h1 id="hero-title">Chhavi <span class="grad-text">Srivastava</span></h1>
-        <p class="hero-role"><span class="role-part">Software Developer</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> MCA Student</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> Full Stack Learner</span></p>
-        <p class="hero-intro">I'm an MCA student and aspiring Software Developer, exploring full-stack development while continuously improving my programming and problem-solving skills.</p>
-
+        <p class="hero-role"><span class="role-part">Aspiring Software Developer</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> MCA Student</span> <span class="role-part"><span class="role-sep" aria-hidden="true">|</span> Full Stack Learner</span></p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">View My Work
             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
           </a>
-          <a class="btn btn-outline" href="#contact">Contact Me
-            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+          <a class="btn btn-outline" href="assets/Chhavi-Srivastava-CV.pdf" target="_blank" rel="noopener noreferrer">Download CV
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
           </a>
         </div>
 
@@ -155,24 +155,9 @@
           <li><a class="social-btn" href="https://www.linkedin.com/in/chhavi-srivastava-92136b3a6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
         </ul>
 
-        <button class="easter-egg-btn" id="easter-egg-btn" type="button">
-          <svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>
-          Try something
-        </button>
-      </div>
-
-      <div class="hero-visual reveal">
-        <span class="spark spark-1" aria-hidden="true"></span>
-        <span class="spark spark-2" aria-hidden="true"></span>
-        <span class="spark spark-3" aria-hidden="true"></span>
-
-        <div class="terminal terminal-hero" aria-hidden="true">
-          <div class="terminal-bar">
-            <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span class="term-dot term-dot-g"></span>
-            <span class="terminal-title">chhavi@portfolio ~ %</span>
-          </div>
-          <pre class="terminal-body" id="terminal-body" aria-hidden="true"></pre>
-        </div>
+        <a class="scroll-down" href="#about" aria-label="Scroll down to About Me">
+          <span class="scroll-mouse" aria-hidden="true"><span class="scroll-wheel"></span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -180,6 +165,8 @@
   <!-- ======================= 3. ABOUT ME ======================= -->
   <section class="section" id="about" aria-labelledby="about-title">
     <div class="container">
+      <!-- Full-screen block: About Me heading + Who Am I + photo. "My Journey" starts on the next screen. -->
+      <div class="about-screen">
       <div class="section-head reveal">
         <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-user"/></svg></span>
         <h2 id="about-title">About Me</h2>
@@ -188,7 +175,8 @@
       <div class="about-grid">
         <div class="about-copy reveal">
           <p class="about-kicker">👩‍💻 Who Am I?</p>
-          <p>I'm Chhavi Srivastava, an MCA student and aspiring Software Developer. I enjoy turning ideas into practical web applications while continuously improving my programming and problem-solving skills. I'm currently exploring full-stack development and strengthening my foundation in DSA and core computer science concepts.</p>
+          <p>I'm Chhavi Srivastava, an <span class="hl">MCA student</span> with a background in <span class="hl">Mathematics</span> and a growing interest in software and web development. I enjoy applying logical, structured thinking to programming, and I'm continuously strengthening my skills in problem-solving, Data Structures and Algorithms, and <span class="hl">full-stack development</span>. I like learning by building — turning ideas into practical, working applications such as Arkmaester — and I approach every new technology with curiosity and a steady, hands-on learning style.</p>
+          <p class="about-more">I am a self-motivated and disciplined individual with strong communication, leadership, and teamwork skills. I enjoy collaborating with others, coordinating tasks, and continuously learning to grow both personally and professionally.</p>
           <ul class="about-tags">
             <li>🎓 MCA Student</li>
             <li>💻 Software Developer</li>
@@ -200,16 +188,18 @@
         </div>
 
         <div class="about-photo reveal">
-          <img src="photo.jpeg" alt="Chhavi Srivastava" width="801" height="881" loading="lazy">
+          <img src="assets/photo.jpeg" alt="Chhavi Srivastava" width="801" height="881" loading="lazy">
         </div>
       </div>
+
+      </div><!-- /.about-screen -->
 
       <!-- ---- About My Journey: interactive vertical timeline ---- -->
       <div class="journey">
         <div class="section-head reveal journey-head">
           <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-sparkle"/></svg></span>
           <div>
-            <h3 class="journey-title">About My Journey</h3>
+            <h3 class="journey-title">My Journey</h3>
             <p class="journey-tagline">From Mathematics <span aria-hidden="true">→</span> to Code <span aria-hidden="true">→</span> to Software Development</p>
           </div>
         </div>
@@ -218,9 +208,9 @@
           <li class="journey-item reveal">
             <span class="journey-dot" aria-hidden="true">🎓</span>
             <div class="journey-card">
-              <span class="journey-year">2025</span>
-              <h4>B.Sc. Mathematics</h4>
-              <p>Built a foundation in logical thinking and problem-solving.</p>
+              <span class="journey-year">2022 – 2025</span>
+              <h4>B.Sc. (PCAM)</h4>
+              <p>Studied Physics, Chemistry and Mathematics, building a strong foundation in logical thinking and analytical problem-solving. This base later shaped my interest in computer science and programming.</p>
             </div>
           </li>
           <li class="journey-item reveal">
@@ -228,29 +218,29 @@
             <div class="journey-card">
               <span class="journey-year">2025</span>
               <h4>Started MCA</h4>
-              <p>Began exploring programming and computer science more deeply.</p>
+              <p>Began my Master of Computer Applications, moving from a mathematics background into the world of computer applications and exploring programming more deeply.</p>
             </div>
           </li>
           <li class="journey-item reveal">
             <span class="journey-dot" aria-hidden="true">🌐</span>
             <div class="journey-card">
               <span class="journey-year">2026</span>
-              <h4>Web Development Experience</h4>
-              <p>Worked on web-development tasks during my internship at InAmigos Foundation.</p>
+              <h4>Web Development Internship</h4>
+              <p>Worked as a Web Developer at InAmigos Foundation, gaining hands-on exposure to real web-development tasks and a more practical understanding of building web applications.</p>
             </div>
           </li>
           <li class="journey-item reveal">
             <span class="journey-dot" aria-hidden="true">⚙️</span>
             <div class="journey-card">
               <span class="journey-year">2026</span>
-              <h4>ASP.NET MVC</h4>
-              <p>Explored full-stack development.</p>
+              <h4>ASP.NET MVC Workshop</h4>
+              <p>Participated in a Full Stack Development workshop focused on ASP.NET MVC at Kamadgiri Software Solutions Limited, gaining practical exposure to full-stack web development.</p>
             </div>
           </li>
           <li class="journey-item reveal">
             <span class="journey-dot" aria-hidden="true">🚀</span>
             <div class="journey-card">
-              <span class="journey-year">Today</span>
+              <span class="journey-year">Present</span>
               <h4>Learning &amp; Building</h4>
               <p>Strengthening DSA, programming and full-stack development skills through continuous practice and projects.</p>
             </div>
@@ -277,6 +267,8 @@
           <li class="skill-card reveal" style="--c:#ff6a3d"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-html"/></svg><span class="skill-name">HTML</span></li>
           <li class="skill-card reveal" style="--c:#3d8bff"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-css"/></svg><span class="skill-name">CSS</span></li>
           <li class="skill-card reveal" style="--c:#9b6bff"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-bootstrap"/></svg><span class="skill-name">Bootstrap</span></li>
+          <li class="skill-card reveal" style="--c:#4b8bbe"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-python"/></svg><span class="skill-name">Python</span></li>
+          <li class="skill-card reveal" style="--c:#f0db4f"><svg class="icon skill-icon" aria-hidden="true"><use href="#i-js"/></svg><span class="skill-name">JavaScript (JS)</span></li>
         </ul>
       </div>
 
@@ -306,6 +298,7 @@
             <div class="card-body">
               <h3>Master of Computer Applications (MCA)</h3>
               <p>School of Management Sciences, Varanasi</p>
+              <p class="edu-note">Focused on programming, software development and core computer science concepts, while building practical, full-stack development skills through coursework and hands-on projects.</p>
             </div>
             <span class="pill">Expected Completion: 2027</span>
           </article>
@@ -314,10 +307,11 @@
           <article class="card edu-card">
             <span class="card-icon" aria-hidden="true"><svg class="icon"><use href="#i-cap"/></svg></span>
             <div class="card-body">
-              <h3>Bachelor of Science (B.Sc.) in Mathematics</h3>
+              <h3>B.Sc. (PCAM)</h3>
               <p>Veer Bahadur Singh Purvanchal University</p>
+              <p class="edu-note">Studied Physics, Chemistry and Mathematics, developing a strong foundation in logical reasoning and analytical thinking that continues to support my approach to programming and problem-solving.</p>
             </div>
-            <span class="pill">Passing Year: 2025</span>
+            <span class="pill">2022 – 2025</span>
           </article>
         </li>
       </ol>
@@ -339,7 +333,7 @@
           <div class="card-body">
             <h3>Web Developer</h3>
             <p class="exp-org">InAmigos Foundation</p>
-            <p>Worked as a Web Developer at InAmigos Foundation.</p>
+            <p>Worked as a Web Developer at InAmigos Foundation, contributing to real web-development tasks as part of the team. The experience gave me practical exposure to building and maintaining web pages beyond classroom learning.</p>
           </div>
         </article>
 
@@ -348,7 +342,7 @@
           <div class="card-body">
             <h3>Full Stack Development Workshop (ASP.NET MVC)</h3>
             <p class="exp-org">Kamadgiri Software Solutions Limited</p>
-            <p>Gained hands-on exposure to ASP.NET MVC and web application development.</p>
+            <p>Participated in a Full Stack Development workshop focused on ASP.NET MVC. Gained hands-on exposure to the MVC architecture and the fundamentals of full-stack web application development.</p>
           </div>
         </article>
       </div>
@@ -369,7 +363,7 @@
         <!-- PROJECT CARD: Arkmaester. Copy this whole <article> block when adding a new project -->
         <article class="card project-card case-card reveal">
           <a class="case-preview" href="https://arkmaester.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Open Arkmaester (opens in a new tab)">
-            <img src="image.jpeg" alt="" width="600" height="338" loading="lazy">
+            <img src="assets/image.jpeg" alt="" width="600" height="338" loading="lazy">
             <span class="case-preview-overlay" aria-hidden="true"></span>
           </a>
           <div class="case-body">
@@ -395,9 +389,9 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="section-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
-        <h2 id="contact-title">Let's build something together.</h2>
+        <h2 id="contact-title">Let's Connect</h2>
       </div>
-      <p class="section-note reveal">Feel free to reach out for collaboration, opportunities or just to say hello!</p>
+      <p class="section-note reveal">Feel free to reach out for collaboration, opportunities, or just to say hello!</p>
 
       <div class="contact-stack">
         <form class="card contact-form reveal" id="contact-form" novalidate>
@@ -462,20 +456,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Developer mode easter egg: small terminal-style popup, triggered by the "Try something" button -->
-<div class="egg-overlay" id="egg-overlay" hidden>
-  <div class="egg-modal" role="dialog" aria-modal="true" aria-labelledby="egg-title">
-    <div class="terminal-bar">
-      <span class="term-dot term-dot-r"></span><span class="term-dot term-dot-y"></span><span class="term-dot term-dot-g"></span>
-      <span class="terminal-title" id="egg-title">developer-mode ~ %</span>
-      <button class="icon-btn egg-close" id="egg-close" type="button" aria-label="Close">
-        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
-      </button>
-    </div>
-    <pre class="terminal-body egg-body" id="egg-body"></pre>
-  </div>
-</div>
 
 <script src="script.js"></script>
 </body>
