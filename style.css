@@ -252,26 +252,25 @@ main > .section:nth-child(even) {
 .hero-glow {
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(600px 420px at 82% 30%, rgba(34, 211, 238, 0.14), transparent 70%),
-    radial-gradient(520px 380px at 0% 80%, rgba(20, 184, 166, 0.14), transparent 70%);
+    radial-gradient(600px 420px at 82% 30%, rgba(34, 211, 238, 0.155), transparent 70%),
+    radial-gradient(520px 380px at 0% 80%, rgba(20, 184, 166, 0.155), transparent 70%);
 }
 :root[data-theme="light"] .hero-glow {
   background:
-    radial-gradient(600px 420px at 82% 30%, rgba(8, 145, 178, 0.09), transparent 70%),
-    radial-gradient(520px 380px at 0% 80%, rgba(13, 148, 136, 0.08), transparent 70%);
+    radial-gradient(600px 420px at 82% 30%, rgba(8, 145, 178, 0.1), transparent 70%),
+    radial-gradient(520px 380px at 0% 80%, rgba(13, 148, 136, 0.088), transparent 70%);
 }
 .hero-grid {
   position: relative; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center;
   text-align: center; gap: 1.5rem; max-width: 56rem; margin-inline: auto;
 }
 
-.hero-hello { font-family: var(--font-hand); font-size: 1.85rem; line-height: 1; color: var(--accent-text); margin-bottom: 0.85rem; }
 .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; }
-.hero-role { margin-top: 1.1rem; font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 600; line-height: 1.55; color: var(--accent-text); }
+.hero-role { margin-top: 1.4rem; font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 600; line-height: 1.55; color: var(--accent-text); }
 .hero-intro { margin: 1.4rem auto 0; max-width: 32rem; color: var(--muted); font-size: 1.02rem; line-height: 1.65; }
-.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 2.25rem; }
+.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 2.6rem; }
 
-.social-row { display: flex; justify-content: center; gap: 0.65rem; margin-top: 1.75rem; }
+.social-row { display: flex; justify-content: center; gap: 0.65rem; margin-top: 2.1rem; }
 .social-btn {
   display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;
   color: var(--accent-text); background: var(--accent-soft); border: 1px solid var(--border); font-size: 1rem;
