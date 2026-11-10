@@ -605,7 +605,7 @@
         a = dots[i];
         col = a.blue ? cBlue : cTeal;
         if (a.glow) {
-          ctx.fillStyle = "rgba(" + col[0] + "," + col[1] + "," + col[2] + "," + (0.04 * dotScale * themeMul).toFixed(3) + ")";
+          ctx.fillStyle = "rgba(" + col[0] + "," + col[1] + "," + col[2] + "," + (0.044 * dotScale * themeMul).toFixed(3) + ")";
           ctx.beginPath(); ctx.arc(a.x, a.y, a.r + 5, 0, 6.2832); ctx.fill();
         }
         ctx.fillStyle = "rgba(" + col[0] + "," + col[1] + "," + col[2] + "," + (0.36 * dotScale * themeMul).toFixed(3) + ")";
